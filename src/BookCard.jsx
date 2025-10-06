@@ -1,6 +1,5 @@
-function BookCard({ book, isSelected, onSelect, onRemove }) {
+function BookCard({ book, isSelected, onSelect }) {
     const handleCardClick = (e) => {
-        // Prevent card selection when clicking on links or buttons
         if (e.target.closest("a") || e.target.closest("button")) {
             return;
         }
@@ -15,7 +14,6 @@ function BookCard({ book, isSelected, onSelect, onRemove }) {
             <a
                 href={book.url}
                 target="_blank"
-                rel="noopener noreferrer"
             >
                 <div className="image">
                     <img

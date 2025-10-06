@@ -65,31 +65,6 @@ body {
     box-shadow: 0 12px 24px rgba(0, 122, 204, 0.4);
 }
 
-.remove-btn {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    border: none;
-    background: rgb(255, 82, 100);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.remove-btn:hover {
-    background: rgb(234, 0, 0);
-    color: white;
-    transform: scale(1.15);
-}
-
 .card a {
     text-decoration: none;
 }
@@ -115,11 +90,31 @@ body {
     animation: pulse 1500ms infinite ease-in-out;
 }
 
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 32px 12px;
+    gap: 32px;
+    width: 300px;
+}
+
+.btn button {
+    color: #fffffff8;
+    font-weight: 500;
+    font-size: 40px;
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 .btn {
     background: rgba(255, 255, 255, 0.45);
     border-radius: 12px;
     padding: 12px;
-    margin: 0 32px;
     height: 380px;
     width: 300px;
     min-width: 0;
@@ -131,7 +126,54 @@ body {
     box-sizing: border-box;
 }
 
-button:hover {
+.btn-actions {
+    display: flex;
+    color: #fffffff8;
+    width: 300px;
+    font-weight: 500;
+    flex-direction: row;
+    height: 54px;
+    gap: 32px;
+    border: none;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.btn-edit,
+.btn-delete {
+    display: flex;
+    flex: 1;
+}
+
+.btn-edit button {
+    display: flex;
+    justify-content: center;
+    color: #fffffff8;
+    font-weight: 500;
+    font-size: 18px;
+    height: 54px;
+    border-radius: 8px;
+    border: none;
+    align-items: center;
+    background: rgba(103, 228, 62, 0.959);
+    width: 100%;
+}
+
+.btn-delete button {
+    display: flex;
+    justify-content: center;
+    color: #fffffff8;
+    font-weight: 500;
+    font-size: 18px;
+    height: 54px;
+    border-radius: 8px;
+    border: none;
+    align-items: center;
+    background: rgba(228, 62, 62, 0.959);
+    width: 100%;
+}
+
+.btn button:hover {
     color: rgb(236, 177, 0);
 }
 
@@ -145,18 +187,6 @@ button:hover {
     100% {
         transform: scale(1);
     }
-}
-
-button {
-    color: #fffffff8;
-    font-weight: 500;
-    font-size: 40px;
-    background: rgba(255, 255, 255, 0);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
 }
 
 .image {

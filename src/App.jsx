@@ -5,17 +5,38 @@ import booksData from "../data/books.json";
 import "./index.css";
 
 function App() {
-    const [books, setBooks] = useState(booksData);
+    const [books, setBooks] = useState(
+        booksData.map((book) => ({ ...book, selected: false }))
+    );
     const [showModal, setShowModal] = useState(false);
-    const [selectedBooks, setSelectedBooks] = useState(new Set());
 
-    const handleBook = (isbn13) => {
-        setBooks(books.filter((book) => book.isbn13 !== isbn13));
-        setSelectedBooks((prev) => {
-            const newSet = new Set(prev);
-            newSet.delete(isbn13);
-            return newSet;
-        });
+    const handleBookSelect = (isbn13) => {
+        setBooks(
+            books.map((book) => ({
+                ...book,
+                selected: book.isbn13 === isbn13 ? !book.selected : false,
+            }))
+        );
+    };
+
+    const handleBookSubmit = (formData) => {
+        const newBook = {
+            ...formData,
+            isbn13: Date.now().toString(),
+            price: "$0.00",
+            image: "https://media1.tenor.com/m/DkActybid-oAAAAd/my-apologies-cheese.gif",
+            url: "#",
+            selected: false,
+        };
+        setBooks([...books, newBook]);
+    };
+
+    const handleDeleteBook = () => {
+        setBooks(books.filter((book) => !book.selected));
+    };
+
+    const handleEditBook = () => {
+        console.log("nothing lol");
     };
 
     return (
@@ -30,15 +51,29 @@ function App() {
                             <BookCard
                                 key={book.isbn13}
                                 book={book}
-                                isSelected={selectedBooks.has(book.isbn13)}
+                                isSelected={book.selected}
                                 onSelect={() => handleBookSelect(book.isbn13)}
                             />
                         ))}
                     </div>
-                    <div className="btn">
-                        <button onClick={() => setShowModal(true)}>
-                            Add Book
-                        </button>
+                    <div className="btn-container">
+                        <div className="btn">
+                            <button onClick={() => setShowModal(true)}>
+                                Add Book
+                            </button>
+                        </div>
+                        <div className="btn-actions">
+                            <div className="btn-edit">
+                                <button onClick={handleEditBook}>
+                                    Edit Book
+                                </button>
+                            </div>
+                            <div className="btn-delete">
+                                <button onClick={handleDeleteBook}>
+                                    Delete Book
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
