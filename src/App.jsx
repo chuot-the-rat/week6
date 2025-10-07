@@ -1,13 +1,10 @@
 import { useState } from "react";
 import BookCard from "./BookCard";
 import BookModal from "./BookModal";
-import booksData from "../data/books.json";
 import "./index.css";
 
 function App() {
-    const [books, setBooks] = useState(
-        booksData.map((book) => ({ ...book, selected: false }))
-    );
+    const [books, setBooks] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
     const handleBookSelect = (isbn13) => {
@@ -46,16 +43,6 @@ function App() {
                     <h1>Book Shop Catalog</h1>
                 </div>
                 <div className="content">
-                    <div className="content-books">
-                        {books.map((book) => (
-                            <BookCard
-                                key={book.isbn13}
-                                book={book}
-                                isSelected={book.selected}
-                                onSelect={() => handleBookSelect(book.isbn13)}
-                            />
-                        ))}
-                    </div>
                     <div className="btn-container">
                         <div className="btn">
                             <button onClick={() => setShowModal(true)}>
@@ -74,6 +61,16 @@ function App() {
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    <div className="content-books">
+                        {books.map((book) => (
+                            <BookCard
+                                key={book.isbn13}
+                                book={book}
+                                isSelected={book.selected}
+                                onSelect={() => handleBookSelect(book.isbn13)}
+                            />
+                        ))}
                     </div>
                 </div>
 

@@ -4,6 +4,8 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -12,13 +14,14 @@ body {
 }
 
 .app {
-    margin: 0 auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
 }
 
 .header {
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-size: 24px;
     color: white;
@@ -29,17 +32,19 @@ body {
 }
 
 .content {
+    flex: 1;
     display: flex;
-    align-items: flex-start;
+    gap: 32px;
+    align-items: start;
     justify-content: center;
+    padding: 46px;
 }
 
 .content-books {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    width: 1320px;
     gap: 32px;
-    margin-bottom: 32px;
-    box-sizing: border-box;
 }
 
 .card {
@@ -93,10 +98,10 @@ body {
 .btn-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 0 32px 12px;
     gap: 32px;
     width: 300px;
+    position: sticky;
+    top: 32px;
 }
 
 .btn button {
@@ -130,9 +135,8 @@ body {
     display: flex;
     color: #fffffff8;
     width: 300px;
-    font-weight: 500;
     flex-direction: row;
-    height: 54px;
+    height: 60px;
     gap: 32px;
     border: none;
     align-items: center;
@@ -149,13 +153,13 @@ body {
     display: flex;
     justify-content: center;
     color: #fffffff8;
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 20px;
     height: 54px;
     border-radius: 8px;
     border: none;
     align-items: center;
-    background: rgba(103, 228, 62, 0.959);
+    background: rgba(103, 228, 62, 0.85);
     width: 100%;
 }
 
@@ -163,13 +167,13 @@ body {
     display: flex;
     justify-content: center;
     color: #fffffff8;
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 20px;
     height: 54px;
     border-radius: 8px;
     border: none;
     align-items: center;
-    background: rgba(228, 62, 62, 0.959);
+    background: rgba(228, 62, 62, 0.85);
     width: 100%;
 }
 
@@ -212,6 +216,9 @@ body {
 }
 
 .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 40px;
